@@ -1,0 +1,532 @@
+/* style.css - LangPedagogy Website */
+/* Full version with compact mobile toggle menu (reduced spacing) */
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.2s ease, border-color 0.2s;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Light Mode Variables (default) */
+:root {
+  --bg-primary: #f9fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #334155;
+  --border-light: #e2e8f0;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --header-bg: #ffffffdd;
+  --header-shadow: rgba(0, 0, 0, 0.05);
+  --footer-bg: #f1f5f9;
+  --badge-bg: #eef2ff;
+  --tip-bg: #fef9e3;
+  --nav-hover-bg: rgba(59, 130, 246, 0.1);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+}
+
+/* Dark Mode Variables */
+body.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --border-light: #334155;
+  --accent: #60a5fa;
+  --accent-hover: #3b82f6;
+  --header-bg: #0f172ad9;
+  --header-shadow: rgba(0, 0, 0, 0.3);
+  --footer-bg: #0f172a;
+  --badge-bg: #1e293b;
+  --tip-bg: #2d3a3f;
+  --nav-hover-bg: rgba(96, 165, 250, 0.15);
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+}
+
+body {
+  background: var(--bg-primary);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header & Navigation */
+.site-header {
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 3px var(--header-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.5rem;
+}
+
+.logo a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.3px;
+}
+
+.logo i {
+  color: var(--accent);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+/* Hamburger Menu (mobile) - enhanced animated */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 6px;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Animated X when menu open */
+.hamburger.open .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Navigation menu - desktop */
+.nav-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  display: flex;
+  gap: 0.3rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.nav-list li a:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Dark mode toggle button */
+.dark-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 2rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: 0.2s;
+  margin-left: 0.5rem;
+}
+
+.dark-toggle:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Page sections (for single-page version, kept for compatibility) */
+.page {
+  display: none;
+  animation: fadePage 0.35s ease;
+}
+
+.active-page {
+  display: block;
+}
+
+@keyframes fadePage {
+  from { opacity: 0; transform: translateY(8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.fade-in {
+  animation: fadePage 0.4s ease;
+}
+
+/* Hero Section */
+.hero {
+  background: var(--bg-secondary);
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, var(--accent), #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 1.2rem;
+}
+
+.hero-badge {
+  background: var(--badge-bg);
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 40px;
+  font-size: 0.9rem;
+}
+
+/* Card Grid */
+.card-grid {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+
+.info-card {
+  flex: 1;
+  min-width: 220px;
+  background: var(--bg-card);
+  padding: 1.8rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+}
+
+.info-card i {
+  font-size: 2.4rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.info-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.welcome-note {
+  background: var(--bg-secondary);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 1rem 0 2rem;
+  text-align: center;
+  border: 1px solid var(--border-light);
+}
+
+.cta-link {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cta-link:hover {
+  background: var(--accent-hover);
+}
+
+/* About Page */
+.about-content p {
+  margin: 1rem 0;
+  font-size: 1.05rem;
+}
+
+.about-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-stats span {
+  background: var(--badge-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  font-size: 0.9rem;
+}
+
+/* Contact Form */
+.contact-form {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid var(--border-light);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.btn-submit {
+  background: var(--accent);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: var(--accent-hover);
+}
+
+/* Chapter badge + tips */
+.chapter-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  border-radius: 2rem;
+  padding: 0.2rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.tip-box {
+  background: var(--tip-bg);
+  border-left: 5px solid var(--accent);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 1rem;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--footer-bg);
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ========== ENHANCED MOBILE RESPONSIVE TOGGLE MENU (COMPACT) ========== */
+@media screen and (max-width: 860px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(20px);
+    background-color: rgba(var(--bg-secondary-rgb, 255,255,255), 0.97);
+    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    z-index: 1000;
+    padding: 4rem 0.8rem 1rem;
+    border-right: 1px solid var(--border-light);
+    overflow-y: auto;
+  }
+
+  body.dark .nav-menu {
+    background: rgba(15, 23, 42, 0.98);
+  }
+
+  .nav-menu.open {
+    left: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0.2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-list li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-list li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    background: transparent;
+    color: var(--text-primary);
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .nav-list li a:hover,
+  .nav-list li a.active {
+    background: var(--accent);
+    color: white;
+    transform: translateX(4px);
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .header-container {
+    padding: 0.7rem 1rem;
+  }
+}
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+  .nav-menu {
+    width: 85%;
+    left: -85%;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .card-grid {
+    flex-direction: column;
+  }
+  .info-card {
+    min-width: auto;
+  }
+  .about-stats {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .hero {
+    padding: 2rem 1rem;
+  }
+  .contact-form {
+    padding: 1.3rem;
+  }
+  .logo a {
+    font-size: 1.3rem;
+  }
+  .dark-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* General utility */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+h3 {
+  margin: 1.2rem 0 0.6rem;
+}
+
+ul, .page ul {
+  margin: 1rem 0 1rem 1.5rem;
+}
+
+li {
+  margin: 0.4rem 0;
+}
