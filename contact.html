@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>संपर्क करें | हिंदी शिक्षाशास्त्र</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER: Mobile Toggle Menu + Dark Mode -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="index.html"><i class="fas fa-language"></i> हिंदी शिक्षाशास्त्र</a>
+      </div>
+      
+      <button class="hamburger" id="hamburgerBtn" aria-label="मेनू टॉगल करें">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="index.html">🏠 होम</a></li>
+          <li><a href="about.html">📖 परिचय</a></li>
+          <li><a href="contact.html">✉️ संपर्क</a></li>
+          <li><a href="chapter-1.html">📘 अध्याय 1</a></li>
+          <li><a href="chapter-2.html">📗 अध्याय 2</a></li>
+          <li><a href="chapter-3.html">📙 अध्याय 3</a></li>
+          <li><a href="chapter-4.html">📕 अध्याय 4</a></li>
+          <li><a href="chapter-5.html">📔 अध्याय 5</a></li>
+          <li><a href="chapter-6.html">📒 अध्याय 6</a></li>
+          <li><a href="chapter-7.html">📓 अध्याय 7</a></li>
+          <li><a href="chapter-8.html">📖 अध्याय 8</a></li>
+          <li><a href="chapter-9.html">📚 अध्याय 9</a></li>
+        </ul>
+      </nav>
+
+      <button class="dark-toggle" id="darkModeToggle" aria-label="डार्क मोड">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container fade-in">
+      <h2><i class="fas fa-envelope-open-text"></i> हमसे संपर्क करें</h2>
+      <p>हिंदी शिक्षाशास्त्र (Hindi Pedagogy) वेबसाइट से संबंधित किसी भी प्रश्न, सुझाव, सहयोग या समस्या के लिए नीचे दिए गए फॉर्म का उपयोग करें। हम शीघ्र उत्तर देने का प्रयास करेंगे।</p>
+
+      <!-- Contact Form -->
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="name">पूरा नाम *</label>
+          <input type="text" id="name" name="name" placeholder="जैसे: राम कुमार शर्मा" required>
+        </div>
+        <div class="form-group">
+          <label for="email">ईमेल पता *</label>
+          <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">विषय (Subject) *</label>
+          <input type="text" id="subject" name="subject" placeholder="जैसे: पाठ्यक्रम संबंधी प्रश्न, तकनीकी सहायता, सुझाव" required>
+        </div>
+        <div class="form-group">
+          <label for="message">संदेश / प्रश्न *</label>
+          <textarea id="message" rows="5" placeholder="अपनी बात विस्तार से लिखें..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> संदेश भेजें</button>
+      </form>
+
+      <!-- Alternate contact options -->
+      <div class="contact-alt">
+        <div class="grid-2">
+          <div class="info-card">
+            <i class="fas fa-envelope"></i>
+            <h3>ईमेल पता</h3>
+            <p>ukbanjare05@gmail.com</p>
+            <p>ukbanjare05@gmail.com</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>फ़ोन नंबर</h3>
+            <p>+91 7509873448</p>
+            <p>+91 7509873448</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>कार्यालय पता</h3>
+            <p>हिंदी शिक्षाशास्त्र हब<br />शिक्षा नगर, नई दिल्ली - 110001<br />भारत</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-clock"></i>
+            <h3>प्रतिक्रिया समय</h3>
+            <p>सोमवार - शुक्रवार: सुबह 10 बजे - शाम 6 बजे<br />हम 48 घंटों के भीतर उत्तर देने का प्रयास करते हैं।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 हिंदी शिक्षाशास्त्र — भाषा शिक्षकों एवं अभ्यर्थियों हेतु निःशुल्क संसाधन</p>
+      <p><i class="fas fa-adjust"></i> डार्क मोड · रिस्पॉन्सिव · व्यापक पाठ्यक्रम</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Contact form submission handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const subject = document.getElementById('subject').value.trim();
+          const message = document.getElementById('message').value.trim();
+          
+          if (!name || !email || !subject || !message) {
+            alert('⚠️ कृपया सभी आवश्यक फ़ील्ड (नाम, ईमेल, विषय, संदेश) भरें।');
+            return;
+          }
+          if (!email.includes('@') || !email.includes('.')) {
+            alert('📧 कृपया एक वैध ईमेल पता दर्ज करें।');
+            return;
+          }
+          
+          alert(`✨ धन्यवाद ${name}! आपका संदेश प्राप्त हो गया है। हम शीघ्र प्रतिक्रिया देंगे।`);
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
